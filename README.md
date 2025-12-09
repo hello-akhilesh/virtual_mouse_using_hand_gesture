@@ -16,42 +16,36 @@ It uses MediaPipe for hand tracking, OpenCV for video processing, and PyAutoGUI 
 
  🎯 High accuracy and low latency
 
-📸 How It Works
-
-1. MediaPipe detects hand landmarks
-
-2. The index fingertip (landmark 8) is mapped to screen coordinates
-
-3. Pointer movement is smoothed for natural control
-
-4. If distance between thumb (landmark 4) and index fingertip is small → mouse click
-
-5. Display window shows real-time camera feed with tracking
 
 🛠️ Technologies Used
 
--Python
+-> Python
 
--OpenCV
+-> OpenCV
 
--MediaPipe
+-> MediaPipe
 
--PyAutoGUI
+-> PyAutoGUI
 
--NumPy
+-> NumPy
 
 📦 Installation
 1. Clone the repository
    
--git clone <https://github.com/hello-akhilesh/virtual_mouse_using_hand_gesture>
--cd <virtual_mouse_using_hand_gesture>
+ -> git clone <https://github.com/hello-akhilesh/virtual_mouse_using_hand_gesture>
+
+ -> cd <virtual_mouse_using_hand_gesture>
 
 3. Install dependencies
+   
 pip install opencv-python mediapipe pyautogui numpy
 
 🎮 Controls
+
 Gesture	Action
 
--Index finger moving	-> Move mouse cursor
--Thumb + Index pinch	-> Left click
--Press q	Quit the application
+1. Index finger moving	-> Move mouse cursor
+
+2. Thumb + Index pinch	-> Left click
+
+3. Press q to	Quit the application
