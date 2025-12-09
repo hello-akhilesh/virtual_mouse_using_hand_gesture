@@ -4,10 +4,10 @@ import pyautogui
 import numpy as np
 import time
 
-# Set screen size (you can use pyautogui.size())
+# Set screen size 
 screen_width, screen_height = pyautogui.size()
 
-# Initialize MediaPipe Hands
+# Initializing MediaPipe Hands
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(max_num_hands=1, min_detection_confidence=0.7)
 mp_draw = mp.solutions.drawing_utils
@@ -37,7 +37,7 @@ while cap.isOpened():
         for hand_landmarks in results.multi_hand_landmarks:
             mp_draw.draw_landmarks(image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
 
-            # Get coordinates of index finger tip (landmark 8)
+            # Get coordinates of index finger tip 
             x = int(hand_landmarks.landmark[8].x * w)
             y = int(hand_landmarks.landmark[8].y * h)
 
@@ -49,11 +49,10 @@ while cap.isOpened():
             curr_x = prev_x + (screen_x - prev_x) / smoothening
             curr_y = prev_y + (screen_y - prev_y) / smoothening
 
-            pyautogui.moveTo(curr_x, curr_y)  # Mirror movement if needed
+            pyautogui.moveTo(curr_x, curr_y)  
 
             prev_x, prev_y = curr_x, curr_y
 
-            # Optional: Detect pinch (thumb tip and index tip distance)
             x_thumb = int(hand_landmarks.landmark[4].x * w)
             y_thumb = int(hand_landmarks.landmark[4].y * h)
             distance = np.hypot(x - x_thumb, y - y_thumb)
@@ -71,3 +70,4 @@ while cap.isOpened():
 
 cap.release()
 cv2.destroyAllWindows()
+
